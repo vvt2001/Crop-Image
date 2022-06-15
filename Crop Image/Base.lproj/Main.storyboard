@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,109 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Crop_Image" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-Ky-X1s" customClass="UIImageView">
+                                <rect key="frame" x="10" y="54" width="394" height="613.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-n8-zBT">
+                                <rect key="frame" x="0.0" y="831" width="414" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvQ-WY-FXo">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system" title="">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Crop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzo-qx-Pf8">
+                                        <rect key="frame" x="42" y="0.0" width="328" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaV-zU-Cba">
+                                        <rect key="frame" x="370" y="0.0" width="44" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system" title="">
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="pqU-VY-QRA">
+                                <rect key="frame" x="85" y="677.5" width="244" height="143.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AX-uy-po3">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="143.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_rotate1" title=""/>
+                                        <connections>
+                                            <action selector="rotateImageViewCounterClockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VU6-jy-1dF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10Y-8w-s2K">
+                                        <rect key="frame" x="98" y="0.0" width="48" height="143.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_reset" title=""/>
+                                        <connections>
+                                            <action selector="rotateImageViewClockwise:" destination="BYZ-38-t0r" eventType="touchUpInside" id="23d-xy-y6R"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huY-TE-78I">
+                                        <rect key="frame" x="196" y="0.0" width="48" height="143.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_auto_scan" title="">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="flipImageView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DaI-4h-jrq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pqU-VY-QRA" firstAttribute="top" secondItem="zE1-Ky-X1s" secondAttribute="bottom" constant="10" id="1EN-Qq-rNB"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="80J-SB-j2T"/>
+                            <constraint firstItem="Rwh-n8-zBT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G3J-ZP-lyZ"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.75" id="Nnx-fz-Aop"/>
+                            <constraint firstItem="Rwh-n8-zBT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dfu-pR-1qI"/>
+                            <constraint firstItem="Rwh-n8-zBT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dki-Lf-BG8"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="gXV-eu-6XU"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="oON-ay-blH"/>
+                            <constraint firstItem="pqU-VY-QRA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pgu-gL-1or"/>
+                            <constraint firstItem="Rwh-n8-zBT" firstAttribute="top" secondItem="pqU-VY-QRA" secondAttribute="bottom" constant="10" id="vlg-kZ-Dud"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="hvQ-WY-FXo" id="Xb0-XK-4ky"/>
+                        <outlet property="confirmButton" destination="xaV-zU-Cba" id="FGU-d6-5bp"/>
+                        <outlet property="flipImageButton" destination="huY-TE-78I" id="ukR-g3-YHE"/>
+                        <outlet property="imageCroppingView" destination="zE1-Ky-X1s" id="51D-QN-3Ee"/>
+                        <outlet property="rotateClockwiseButton" destination="10Y-8w-s2K" id="ulT-YB-zbJ"/>
+                        <outlet property="rotateCounterclockwiseButton" destination="8AX-uy-po3" id="A7g-sU-pll"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="ic_auto_scan" width="24" height="24"/>
+        <image name="ic_reset" width="24" height="24"/>
+        <image name="ic_rotate1" width="24" height="24"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
