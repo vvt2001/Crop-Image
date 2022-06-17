@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     
     private var imageAssets = [PHAsset]()
     private var croppingLayerView = CroppingLayerView.loadView()
-    
+    private var originalImageViewFrame: CGRect?
+    private var newImageViewFrame: CGRect?
+
     private func setupImageView(){
         let randomImageAsset = self.imageAssets.randomElement()
         // get image or video's thumbnail
@@ -27,6 +29,7 @@ class ViewController: UIViewController {
         manager.requestImage(for: randomImageAsset!, targetSize: CGSize(width: self.imageCroppingView.frame.width, height: self.imageCroppingView.frame.height), contentMode: .aspectFit, options: nil){ image, _ in
             self.imageCroppingView.image = image
         }
+        
     }
     
     private func loadAssetFromLibrary(){
@@ -53,6 +56,15 @@ class ViewController: UIViewController {
     
     @IBAction private func flipImageView(_ sender: UIButton){
         self.imageCroppingView.image = self.imageCroppingView.image?.withHorizontallyFlippedOrientation()
+    }
+    
+    @IBAction private func saveCroppedImage(_ sender: UIButton){
+        let sourceImage = imageCroppingView.image!
+        let sourceCGImage = sourceImage.cgImage!
+        let croppedCGImage = sourceCGImage.cropping(to: croppingLayerView.frame)!
+        let croppedImageViewController = CroppedImageViewController()
+        croppedImageViewController.croppedImage = UIImage(cgImage: croppedCGImage, scale: sourceImage.imageRendererFormat.scale, orientation: sourceImage.imageOrientation)
+        self.present(croppedImageViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
