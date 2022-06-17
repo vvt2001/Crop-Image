@@ -17,6 +17,10 @@
 		E46E82482859B42300CD9E76 /* Crop_ImageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E82472859B42300CD9E76 /* Crop_ImageUITests.swift */; };
 		E46E824A2859B42300CD9E76 /* Crop_ImageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E82492859B42300CD9E76 /* Crop_ImageUITestsLaunchTests.swift */; };
 		E46E82572859CAC900CD9E76 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E82562859CAC900CD9E76 /* UIImageExtension.swift */; };
+		E46E82592859D9AE00CD9E76 /* CroppingLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E82582859D9AE00CD9E76 /* CroppingLayerView.swift */; };
+		E46E825B2859D9C300CD9E76 /* CroppingLayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46E825A2859D9C300CD9E76 /* CroppingLayerView.xib */; };
+		E46E825D2859DBEB00CD9E76 /* EdgeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E825C2859DBEB00CD9E76 /* EdgeIndicatorView.swift */; };
+		E46E825F2859DBF900CD9E76 /* CornerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E825E2859DBF900CD9E76 /* CornerIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		E46E82472859B42300CD9E76 /* Crop_ImageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crop_ImageUITests.swift; sourceTree = "<group>"; };
 		E46E82492859B42300CD9E76 /* Crop_ImageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crop_ImageUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E46E82562859CAC900CD9E76 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		E46E82582859D9AE00CD9E76 /* CroppingLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingLayerView.swift; sourceTree = "<group>"; };
+		E46E825A2859D9C300CD9E76 /* CroppingLayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CroppingLayerView.xib; sourceTree = "<group>"; };
+		E46E825C2859DBEB00CD9E76 /* EdgeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeIndicatorView.swift; sourceTree = "<group>"; };
+		E46E825E2859DBF900CD9E76 /* CornerIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +112,12 @@
 				E46E82262859B42000CD9E76 /* AppDelegate.swift */,
 				E46E82282859B42000CD9E76 /* SceneDelegate.swift */,
 				E46E822A2859B42000CD9E76 /* ViewController.swift */,
-				E46E82562859CAC900CD9E76 /* UIImageExtension.swift */,
 				E46E822C2859B42000CD9E76 /* Main.storyboard */,
+				E46E82562859CAC900CD9E76 /* UIImageExtension.swift */,
+				E46E82582859D9AE00CD9E76 /* CroppingLayerView.swift */,
+				E46E825A2859D9C300CD9E76 /* CroppingLayerView.xib */,
+				E46E825C2859DBEB00CD9E76 /* EdgeIndicatorView.swift */,
+				E46E825E2859DBF900CD9E76 /* CornerIndicatorView.swift */,
 				E46E822F2859B42200CD9E76 /* Assets.xcassets */,
 				E46E82312859B42200CD9E76 /* LaunchScreen.storyboard */,
 				E46E82342859B42200CD9E76 /* Info.plist */,
@@ -234,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46E825B2859D9C300CD9E76 /* CroppingLayerView.xib in Resources */,
 				E46E82332859B42200CD9E76 /* LaunchScreen.storyboard in Resources */,
 				E46E82302859B42200CD9E76 /* Assets.xcassets in Resources */,
 				E46E822E2859B42000CD9E76 /* Main.storyboard in Resources */,
@@ -261,8 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46E82592859D9AE00CD9E76 /* CroppingLayerView.swift in Sources */,
+				E46E825D2859DBEB00CD9E76 /* EdgeIndicatorView.swift in Sources */,
 				E46E822B2859B42000CD9E76 /* ViewController.swift in Sources */,
 				E46E82272859B42000CD9E76 /* AppDelegate.swift in Sources */,
+				E46E825F2859DBF900CD9E76 /* CornerIndicatorView.swift in Sources */,
 				E46E82292859B42000CD9E76 /* SceneDelegate.swift in Sources */,
 				E46E82572859CAC900CD9E76 /* UIImageExtension.swift in Sources */,
 			);

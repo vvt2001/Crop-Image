@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var confirmButton: UIButton!
     
     private var imageAssets = [PHAsset]()
+    private var croppingLayerView = CroppingLayerView.loadView()
     
     private func setupImageView(){
         let randomImageAsset = self.imageAssets.randomElement()
@@ -58,8 +59,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadAssetFromLibrary()
+        croppingLayerView.frame = imageCroppingView.bounds
+        imageCroppingView.addSubview(croppingLayerView)
     }
-
 
 }
 
