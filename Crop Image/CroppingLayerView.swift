@@ -83,7 +83,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate{
     func edgeIndicatorView(_ edgeIndicatorView: EdgeIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: edgeIndicatorView)
         if edgeIndicatorView == leftEdgeIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x + translation.x, y: oldFrame.origin.y, width: oldFrame.width - translation.x, height: oldFrame.height)
                 self.updateIndicatorView()
@@ -92,7 +92,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate{
         }
 
         if edgeIndicatorView == topEdgeIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x, y: oldFrame.origin.y + translation.y, width: oldFrame.width, height: oldFrame.height - translation.y)
                 self.updateIndicatorView()
@@ -101,7 +101,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate{
         }
 
         if edgeIndicatorView == rightEdgeIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x, y: oldFrame.origin.y, width: oldFrame.width + translation.x, height: oldFrame.height)
                 self.updateIndicatorView()
@@ -110,7 +110,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate{
         }
 
         if edgeIndicatorView == bottomEdgeIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x, y: oldFrame.origin.y, width: oldFrame.width, height: oldFrame.height + translation.y)
                 self.updateIndicatorView()
@@ -124,7 +124,7 @@ extension CroppingLayerView: CornerIndicatorViewDelegate{
     func cornerIndicatorView(_ cornerIndicatorView: CornerIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: cornerIndicatorView)
         if cornerIndicatorView == topLeftCornerIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x + translation.x, y: oldFrame.origin.y + translation.y, width: oldFrame.width - translation.x, height: oldFrame.height - translation.y)
                 self.updateIndicatorView()
@@ -132,7 +132,7 @@ extension CroppingLayerView: CornerIndicatorViewDelegate{
             recognizer.setTranslation(.zero, in: topLeftCornerIndicatorView)
         }
         if cornerIndicatorView == topRightCornerIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x, y: oldFrame.origin.y + translation.y, width: oldFrame.width + translation.x, height: oldFrame.height - translation.y)
                 self.updateIndicatorView()
@@ -140,7 +140,7 @@ extension CroppingLayerView: CornerIndicatorViewDelegate{
             recognizer.setTranslation(.zero, in: topRightCornerIndicatorView)
         }
         if cornerIndicatorView == bottomRightCornerIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x, y: oldFrame.origin.y, width: oldFrame.width + translation.x, height: oldFrame.height + translation.y)
                 self.updateIndicatorView()
@@ -149,7 +149,7 @@ extension CroppingLayerView: CornerIndicatorViewDelegate{
             recognizer.setTranslation(.zero, in: bottomRightCornerIndicatorView)
         }
         if cornerIndicatorView == bottomLeftCornerIndicatorView{
-            CroppingLayerView.animate(withDuration: 0) {
+            CroppingLayerView.animate(withDuration: 0.01) {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x + translation.x, y: oldFrame.origin.y, width: oldFrame.width - translation.x, height: oldFrame.height + translation.y)
                 self.updateIndicatorView()
