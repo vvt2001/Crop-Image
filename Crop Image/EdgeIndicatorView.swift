@@ -30,5 +30,5 @@ class EdgeIndicatorView: UIView{
 }
 
 protocol EdgeIndicatorViewDelegate{
-    func edgeIndicatorView(_ edgeIndicatorView: UIView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
+    func edgeIndicatorView(_ edgeIndicatorView: EdgeIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
 }

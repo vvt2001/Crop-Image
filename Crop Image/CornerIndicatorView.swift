@@ -30,5 +30,5 @@ class CornerIndicatorView: UIView{
 }
 
 protocol CornerIndicatorViewDelegate{
-    func cornerIndicatorView(_ cornerIndicatorView: UIView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
+    func cornerIndicatorView(_ cornerIndicatorView: CornerIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
 }

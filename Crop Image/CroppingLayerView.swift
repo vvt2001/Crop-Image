@@ -76,7 +76,7 @@ class CroppingLayerView: UIView {
 }
 
 extension CroppingLayerView: EdgeIndicatorViewDelegate{
-    func edgeIndicatorView(_ edgeIndicatorView: UIView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer) {
+    func edgeIndicatorView(_ edgeIndicatorView: EdgeIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: edgeIndicatorView)
         if edgeIndicatorView == leftEdgeIndicatorView{
             CroppingLayerView.animate(withDuration: 0) {
@@ -117,7 +117,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate{
 }
 
 extension CroppingLayerView: CornerIndicatorViewDelegate{
-    func cornerIndicatorView(_ cornerIndicatorView: UIView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer) {
+    func cornerIndicatorView(_ cornerIndicatorView: CornerIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: cornerIndicatorView)
         if cornerIndicatorView == topLeftCornerIndicatorView{
             CroppingLayerView.animate(withDuration: 0) {
