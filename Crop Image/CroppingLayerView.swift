@@ -70,7 +70,11 @@ class CroppingLayerView: UIView {
         self.addSubview(bottomLeftCornerIndicatorView)
     }
     
-    override func draw(_ rect: CGRect) {
+//    override func draw(_ rect: CGRect) {
+//        setupView()
+//    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupView()
     }
 }

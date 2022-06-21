@@ -10,8 +10,8 @@ import UIKit
 class CroppedImageViewController: UIViewController {
 
     @IBOutlet private weak var croppedImageView: UIImageView!
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet private weak var backButton: UIBarButtonItem!
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
     
     var croppedImage: UIImage!
     
