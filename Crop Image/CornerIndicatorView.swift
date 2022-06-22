@@ -34,6 +34,7 @@ class CornerIndicatorView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         self.layer.cornerRadius = self.bounds.width/2
     }
 }

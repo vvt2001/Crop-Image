@@ -75,6 +75,7 @@ class CroppingLayerView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         updateIndicatorView()
     }
 }
