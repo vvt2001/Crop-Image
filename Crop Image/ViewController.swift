@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     private var croppingLayerView = CroppingLayerView()
     private var originalImageViewFrame: CGRect?
     private var newImageViewFrame: CGRect?
-
+    private var layoutSubViewFlag = true
+    
     private func setupImageView() {
         let randomImageAsset = self.imageAssets.randomElement()
         // get image or video's thumbnail
@@ -40,20 +41,19 @@ class ViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.setupImageView()
-                    self.setupImageCroppingLayerView()
                 }
             }
         }
     }
     
     @IBAction private func rotateImageViewClockwise(_ sender: UIButton) {
+        layoutSubViewFlag = true
         self.imageCroppingView.image = self.imageCroppingView.image?.rotate(radians: .pi/2)
-        resizeImageCroppingLayerViewToAspectFit()
     }
 
     @IBAction private func rotateImageViewCounterClockwise(_ sender: UIButton) {
+        layoutSubViewFlag = true
         self.imageCroppingView.image = self.imageCroppingView.image?.rotate(radians: -(.pi/2))
-        resizeImageCroppingLayerViewToAspectFit()
     }
     
     @IBAction private func flipImageView(_ sender: UIButton) {
@@ -61,20 +61,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func saveCroppedImage(_ sender: UIButton) {
+        let scale = (imageCroppingView.image?.size.width)! / imageCroppingView.frame.width
+        let cropRect = CGRect(x: croppingLayerView.frame.origin.x * scale, y: croppingLayerView.frame.origin.y * scale, width: croppingLayerView.frame.width * scale, height: croppingLayerView.frame.height * scale)
+        
         let sourceImage = imageCroppingView.image!
         let sourceCGImage = sourceImage.cgImage!
-        let croppedCGImage = sourceCGImage.cropping(to: croppingLayerView.frame)!
+        let croppedCGImage = sourceCGImage.cropping(to: cropRect)!
         let croppedImageViewController = CroppedImageViewController()
         croppedImageViewController.croppedImage = UIImage(cgImage: croppedCGImage, scale: sourceImage.imageRendererFormat.scale, orientation: sourceImage.imageOrientation)
         self.present(croppedImageViewController, animated: true, completion: nil)
     }
     
-    private func setupImageCroppingLayerView(){
-        croppingLayerView.frame = imageCroppingView.bounds
-        imageCroppingView.insertSubview(croppingLayerView, at: 0)
-    }
-    
-    private func resizeImageCroppingLayerViewToAspectFit(){
+    private func resizeImageCroppingLayerViewToAspectFit() {
         imageCroppingView.frame = imageCroppingView.contentClippingRect
     }
     
@@ -86,12 +84,15 @@ class ViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        //resize the image view to fit the image after scaling aspect fit
         resizeImageCroppingLayerViewToAspectFit()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        croppingLayerView.frame = imageCroppingView.bounds
+        
+        //resize crop layer to image view after load and after each rotation
+        if layoutSubViewFlag == true || imageAssets.count != 0 {
+            croppingLayerView.frame = imageCroppingView.bounds
+            layoutSubViewFlag = false
+            imageAssets.removeAll()
+        }
     }
 }
 
