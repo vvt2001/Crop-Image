@@ -25,7 +25,7 @@ class CroppingLayerView: UIView {
         recognizer.setTranslation(.zero, in: self)
     }
     
-    private func updateIndicatorView() {
+    private func updateIndicatorViewLayout() {
         topEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - 6, y: -6, width: 12, height: 12)
         rightEdgeIndicatorView.frame = CGRect(x: self.frame.width - 6, y: self.frame.height/2 - 6, width: 12, height: 12)
         bottomEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - 6, y: self.frame.height - 6, width: 12, height: 12)
@@ -76,7 +76,7 @@ class CroppingLayerView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        updateIndicatorView()
+        updateIndicatorViewLayout()
     }
 }
 
@@ -98,7 +98,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate {
                 let oldFrame = self.frame
                 self.frame = CGRect(x: oldFrame.origin.x, y: oldFrame.origin.y, width: oldFrame.width, height: oldFrame.height + translation.y)
         }
-        self.updateIndicatorView()
+        self.updateIndicatorViewLayout()
     }
 }
 
@@ -120,6 +120,6 @@ extension CroppingLayerView: CornerIndicatorViewDelegate {
             let oldFrame = self.frame
             self.frame = CGRect(x: oldFrame.origin.x + translation.x, y: oldFrame.origin.y, width: oldFrame.width - translation.x, height: oldFrame.height + translation.y)
         }
-        self.updateIndicatorView()
+        self.updateIndicatorViewLayout()
     }
 }
