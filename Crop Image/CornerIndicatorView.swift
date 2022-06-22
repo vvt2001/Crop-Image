@@ -13,7 +13,8 @@ class CornerIndicatorView: UIView {
     var delegate: CornerIndicatorViewDelegate?
     
     @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
-        delegate?.cornerIndicatorView(self, didPanIndicatorWithRecognizer: recognizer)
+        delegate?.cornerIndicatorView(self, didPanIndicatorWithTranslation: recognizer.translation(in: self))
+        recognizer.setTranslation(.zero, in: self)
     }
     
     private func createView() {
@@ -38,5 +39,5 @@ class CornerIndicatorView: UIView {
 }
 
 protocol CornerIndicatorViewDelegate {
-    func cornerIndicatorView(_ cornerIndicatorView: CornerIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
+    func cornerIndicatorView(_ cornerIndicatorView: CornerIndicatorView, didPanIndicatorWithTranslation translation: CGPoint)
 }

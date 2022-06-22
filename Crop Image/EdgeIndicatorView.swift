@@ -13,7 +13,8 @@ class EdgeIndicatorView: UIView {
     var delegate: EdgeIndicatorViewDelegate?
     
     @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
-        delegate?.edgeIndicatorView(self, didPanIndicatorWithRecognizer: recognizer)
+        delegate?.edgeIndicatorView(self, didPanIndicatorWithTranslation: recognizer.translation(in: self))
+        recognizer.setTranslation(.zero, in: self)
     }
     
     private func createView() {
@@ -38,5 +39,5 @@ class EdgeIndicatorView: UIView {
 }
 
 protocol EdgeIndicatorViewDelegate {
-    func edgeIndicatorView(_ edgeIndicatorView: EdgeIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
+    func edgeIndicatorView(_ edgeIndicatorView: EdgeIndicatorView, didPanIndicatorWithTranslation translation: CGPoint)
 }
