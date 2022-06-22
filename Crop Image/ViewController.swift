@@ -77,9 +77,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadAssetFromLibrary()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
 }
 
