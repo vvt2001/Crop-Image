@@ -29,12 +29,6 @@ class ViewController: UIViewController {
         manager.requestImage(for: randomImageAsset!, targetSize: CGSize(width: self.imageCroppingView.frame.width, height: self.imageCroppingView.frame.height), contentMode: .aspectFit, options: nil) { image, _ in
             self.imageCroppingView.image = image
         }
-        
-    }
-    
-    private func setupCroppingLayer() {
-        self.croppingLayerView.frame = self.imageCroppingView.bounds
-        imageCroppingView.addSubview(croppingLayerView)
     }
     
     private func loadAssetFromLibrary() {
@@ -46,7 +40,6 @@ class ViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.setupImageView()
-                    self.setupCroppingLayer()
                 }
             }
         }
@@ -76,6 +69,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAssetFromLibrary()
+        imageCroppingView.addSubview(croppingLayerView)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        croppingLayerView.frame = imageCroppingView.bounds
     }
 }
 
