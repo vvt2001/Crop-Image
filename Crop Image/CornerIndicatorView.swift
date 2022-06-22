@@ -19,13 +19,21 @@ class CornerIndicatorView: UIView{
     private func createView(){
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.addGestureRecognizer(gestureRecognizer)
-        self.backgroundColor = UIColor.white
-        self.layer.cornerRadius = self.bounds.width/2
+        self.backgroundColor = UIColor.link
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        createView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()
-        createView()
+        self.layer.cornerRadius = self.bounds.width/2
     }
 }
 

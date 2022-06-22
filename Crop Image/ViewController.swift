@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var confirmButton: UIButton!
     
     private var imageAssets = [PHAsset]()
-    private var croppingLayerView = CroppingLayerView.loadView()
+    private var croppingLayerView = CroppingLayerView()
     private var originalImageViewFrame: CGRect?
     private var newImageViewFrame: CGRect?
 
@@ -69,11 +69,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         loadAssetFromLibrary()
-        croppingLayerView.frame = imageCroppingView.bounds
         imageCroppingView.addSubview(croppingLayerView)
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        croppingLayerView.frame = imageCroppingView.bounds
+    }
 }
 

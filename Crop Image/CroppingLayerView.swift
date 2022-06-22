@@ -18,20 +18,11 @@ class CroppingLayerView: UIView {
     private var bottomRightCornerIndicatorView = CornerIndicatorView()
     private var bottomLeftCornerIndicatorView = CornerIndicatorView()
     
-    @IBAction private func handlePanGesture(_ recognizer: UIPanGestureRecognizer){
+    @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer){
         let translation = recognizer.translation(in: self)
         self.center.x += translation.x
         self.center.y += translation.y
         recognizer.setTranslation(.zero, in: self)
-    }
-    
-    static func loadView() -> CroppingLayerView{
-        let bundleName = Bundle(for: self)
-        let nibName = String(describing: self)
-        let nib = UINib(nibName: nibName, bundle: bundleName)
-        let view = nib.instantiate(withOwner: nil, options: nil).first as! CroppingLayerView
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
     }
     
     private func updateIndicatorView(){
@@ -47,8 +38,8 @@ class CroppingLayerView: UIView {
     }
     
     private func setupView(){
-        updateIndicatorView()
-
+        self.backgroundColor = UIColor.link.withAlphaComponent(0.2)
+        
         topEdgeIndicatorView.delegate = self
         rightEdgeIndicatorView.delegate = self
         bottomEdgeIndicatorView.delegate = self
@@ -68,14 +59,23 @@ class CroppingLayerView: UIView {
         self.addSubview(topRightCornerIndicatorView)
         self.addSubview(bottomRightCornerIndicatorView)
         self.addSubview(bottomLeftCornerIndicatorView)
+        
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        self.addGestureRecognizer(gestureRecognizer)
     }
     
-//    override func draw(_ rect: CGRect) {
-//        setupView()
-//    }
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        updateIndicatorView()
     }
 }
 
