@@ -40,6 +40,7 @@ class ViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.setupImageView()
+                    self.setupImageCroppingLayerView()
                 }
             }
         }
@@ -47,10 +48,12 @@ class ViewController: UIViewController {
     
     @IBAction private func rotateImageViewClockwise(_ sender: UIButton) {
         self.imageCroppingView.image = self.imageCroppingView.image?.rotate(radians: .pi/2)
+        resizeImageCroppingLayerViewToAspectFit()
     }
 
     @IBAction private func rotateImageViewCounterClockwise(_ sender: UIButton) {
         self.imageCroppingView.image = self.imageCroppingView.image?.rotate(radians: -(.pi/2))
+        resizeImageCroppingLayerViewToAspectFit()
     }
     
     @IBAction private func flipImageView(_ sender: UIButton) {
@@ -66,10 +69,24 @@ class ViewController: UIViewController {
         self.present(croppedImageViewController, animated: true, completion: nil)
     }
     
+    private func setupImageCroppingLayerView(){
+        croppingLayerView.frame = imageCroppingView.bounds
+        imageCroppingView.insertSubview(croppingLayerView, at: 0)
+    }
+    
+    private func resizeImageCroppingLayerViewToAspectFit(){
+        imageCroppingView.frame = imageCroppingView.contentClippingRect
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAssetFromLibrary()
         imageCroppingView.addSubview(croppingLayerView)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        resizeImageCroppingLayerViewToAspectFit()
     }
 
     override func viewDidAppear(_ animated: Bool) {
