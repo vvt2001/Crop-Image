@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-Ky-X1s" customClass="UIImageView">
-                                <rect key="frame" x="10" y="54" width="394" height="613.5"/>
+                                <rect key="frame" x="15" y="59" width="384" height="613.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-n8-zBT">
@@ -41,14 +42,17 @@
                                         <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system" title="">
                                             <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="saveCroppedImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A2q-yu-ddl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="pqU-VY-QRA">
-                                <rect key="frame" x="85" y="677.5" width="244" height="143.5"/>
+                                <rect key="frame" x="85" y="778" width="244" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AX-uy-po3">
-                                        <rect key="frame" x="0.0" y="0.0" width="48" height="143.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="38"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_rotate1" title=""/>
                                         <connections>
@@ -56,7 +60,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10Y-8w-s2K">
-                                        <rect key="frame" x="98" y="0.0" width="48" height="143.5"/>
+                                        <rect key="frame" x="98" y="0.0" width="48" height="38"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_reset" title=""/>
                                         <connections>
@@ -64,7 +68,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huY-TE-78I">
-                                        <rect key="frame" x="196" y="0.0" width="48" height="143.5"/>
+                                        <rect key="frame" x="196" y="0.0" width="48" height="38"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_auto_scan" title="">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
@@ -79,16 +83,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pqU-VY-QRA" firstAttribute="top" secondItem="zE1-Ky-X1s" secondAttribute="bottom" constant="10" id="1EN-Qq-rNB"/>
-                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="80J-SB-j2T"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="80J-SB-j2T"/>
                             <constraint firstItem="Rwh-n8-zBT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G3J-ZP-lyZ"/>
                             <constraint firstItem="zE1-Ky-X1s" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.75" id="Nnx-fz-Aop"/>
                             <constraint firstItem="Rwh-n8-zBT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dfu-pR-1qI"/>
                             <constraint firstItem="Rwh-n8-zBT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dki-Lf-BG8"/>
-                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="gXV-eu-6XU"/>
-                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="oON-ay-blH"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-15" id="gXV-eu-6XU"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="oON-ay-blH"/>
                             <constraint firstItem="pqU-VY-QRA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pgu-gL-1or"/>
-                            <constraint firstItem="Rwh-n8-zBT" firstAttribute="top" secondItem="pqU-VY-QRA" secondAttribute="bottom" constant="10" id="vlg-kZ-Dud"/>
+                            <constraint firstItem="Rwh-n8-zBT" firstAttribute="top" secondItem="pqU-VY-QRA" secondAttribute="bottom" constant="15" id="vlg-kZ-Dud"/>
                         </constraints>
                     </view>
                     <connections>
