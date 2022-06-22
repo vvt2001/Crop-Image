@@ -32,6 +32,11 @@ class ViewController: UIViewController {
         
     }
     
+    private func setupCroppingLayer() {
+        self.croppingLayerView.frame = self.imageCroppingView.bounds
+        imageCroppingView.addSubview(croppingLayerView)
+    }
+    
     private func loadAssetFromLibrary() {
         PHPhotoLibrary.requestAuthorization { status in
             if status == .authorized {
@@ -41,6 +46,7 @@ class ViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.setupImageView()
+                    self.setupCroppingLayer()
                 }
             }
         }
@@ -70,12 +76,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAssetFromLibrary()
-        imageCroppingView.addSubview(croppingLayerView)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        croppingLayerView.frame = imageCroppingView.bounds
     }
 }
 
