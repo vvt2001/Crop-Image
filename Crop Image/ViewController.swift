@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     private var croppingLayerView = CroppingLayerView()
     private var originalImageViewFrame: CGRect?
     private var newImageViewFrame: CGRect?
-    private var layoutSubViewFlag = true
+    private var rotateFlag = true
+    private var imageIsFlipped = false
     
     private func setupImageView() {
         let randomImageAsset = self.imageAssets.randomElement()
@@ -47,23 +48,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func rotateImageViewClockwise(_ sender: UIButton) {
-        layoutSubViewFlag = true
+        rotateFlag = true
         self.imageCroppingView.image = self.imageCroppingView.image?.rotate(radians: .pi/2)
     }
 
     @IBAction private func rotateImageViewCounterClockwise(_ sender: UIButton) {
-        layoutSubViewFlag = true
+        rotateFlag = true
         self.imageCroppingView.image = self.imageCroppingView.image?.rotate(radians: -(.pi/2))
     }
     
     @IBAction private func flipImageView(_ sender: UIButton) {
+        imageIsFlipped = !imageIsFlipped
         self.imageCroppingView.image = self.imageCroppingView.image?.withHorizontallyFlippedOrientation()
     }
     
     @IBAction private func saveCroppedImage(_ sender: UIButton) {
         let scale = (imageCroppingView.image?.size.width)! / imageCroppingView.frame.width
-        let cropRect = CGRect(x: croppingLayerView.frame.origin.x * scale, y: croppingLayerView.frame.origin.y * scale, width: croppingLayerView.frame.width * scale, height: croppingLayerView.frame.height * scale)
-        
+        let cropRect: CGRect
+        if !imageIsFlipped {
+            cropRect = CGRect(x: croppingLayerView.frame.origin.x * scale, y: croppingLayerView.frame.origin.y * scale, width: croppingLayerView.frame.width * scale, height: croppingLayerView.frame.height * scale)
+        }
+        else {
+            cropRect = CGRect(x: (imageCroppingView.bounds.width - (croppingLayerView.frame.origin.x + croppingLayerView.frame.width)) * scale, y: croppingLayerView.frame.origin.y * scale, width: croppingLayerView.frame.width * scale, height: croppingLayerView.frame.height * scale)
+        }
         let sourceImage = imageCroppingView.image!
         let sourceCGImage = sourceImage.cgImage!
         let croppedCGImage = sourceCGImage.cropping(to: cropRect)!
@@ -88,9 +95,9 @@ class ViewController: UIViewController {
         resizeImageCroppingLayerViewToAspectFit()
         
         //resize crop layer to image view after load and after each rotation
-        if layoutSubViewFlag == true || imageAssets.count != 0 {
+        if rotateFlag == true || imageAssets.count != 0 {
             croppingLayerView.frame = imageCroppingView.bounds
-            layoutSubViewFlag = false
+            rotateFlag = false
             imageAssets.removeAll()
         }
     }
