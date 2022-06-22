@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-class EdgeIndicatorView: UIView{
+class EdgeIndicatorView: UIView {
     
     var delegate: EdgeIndicatorViewDelegate?
     
-    @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer){
+    @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         delegate?.edgeIndicatorView(self, didPanIndicatorWithRecognizer: recognizer)
     }
     
-    private func createView(){
+    private func createView() {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.addGestureRecognizer(gestureRecognizer)
         self.backgroundColor = UIColor.link
@@ -37,6 +37,6 @@ class EdgeIndicatorView: UIView{
     }
 }
 
-protocol EdgeIndicatorViewDelegate{
+protocol EdgeIndicatorViewDelegate {
     func edgeIndicatorView(_ edgeIndicatorView: EdgeIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
 }

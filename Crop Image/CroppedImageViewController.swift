@@ -15,11 +15,11 @@ class CroppedImageViewController: UIViewController {
     
     var croppedImage: UIImage!
     
-    @IBAction private func goBack(_ sender: UIButton){
+    @IBAction private func goBack(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
     
-    @IBAction private func saveImage(_ sender: UIButton){
+    @IBAction private func saveImage(_ sender: UIButton) {
         
     }
     

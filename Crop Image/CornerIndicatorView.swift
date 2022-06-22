@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 
-class CornerIndicatorView: UIView{
+class CornerIndicatorView: UIView {
     
     var delegate: CornerIndicatorViewDelegate?
     
-    @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer){
+    @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         delegate?.cornerIndicatorView(self, didPanIndicatorWithRecognizer: recognizer)
     }
     
-    private func createView(){
+    private func createView() {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.addGestureRecognizer(gestureRecognizer)
         self.backgroundColor = UIColor.link
@@ -37,6 +37,6 @@ class CornerIndicatorView: UIView{
     }
 }
 
-protocol CornerIndicatorViewDelegate{
+protocol CornerIndicatorViewDelegate {
     func cornerIndicatorView(_ cornerIndicatorView: CornerIndicatorView, didPanIndicatorWithRecognizer recognizer: UIPanGestureRecognizer)
 }
