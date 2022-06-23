@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     private var imageAssets = [PHAsset]()
     private var croppingLayerView = CroppingLayerView()
+    private var croppingLayerBorderView = CroppingLayerBorderView()
     private var originalImageViewFrame: CGRect?
     private var newImageViewFrame: CGRect?
     private var rotateFlag = true
@@ -86,7 +87,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAssetFromLibrary()
-        imageCroppingView.addSubview(croppingLayerView)
+        imageCroppingView.insertSubview(croppingLayerBorderView, at: 0)
+        imageCroppingView.insertSubview(croppingLayerView, at: 1)
+        croppingLayerView.delegate = self
     }
 
     override func viewDidLayoutSubviews() {
@@ -96,6 +99,7 @@ class ViewController: UIViewController {
         
         //resize crop layer to image view after load and after each rotation
         if rotateFlag == true || !imageAssets.isEmpty {
+            croppingLayerBorderView.frame = imageCroppingView.bounds
             croppingLayerView.frame = imageCroppingView.bounds
             rotateFlag = false
             imageAssets.removeAll()
@@ -103,3 +107,8 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: CroppingLayerViewDelegate {
+    func croppingLayerViewChanged(_ croppingLayerView: CroppingLayerView) {
+        croppingLayerBorderView.frame = croppingLayerView.frame
+    }
+}

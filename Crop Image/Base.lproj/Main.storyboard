@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-Ky-X1s" customClass="UIImageView">
-                                <rect key="frame" x="15" y="59" width="384" height="613.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="613.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-n8-zBT">
@@ -83,13 +83,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="80J-SB-j2T"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="80J-SB-j2T"/>
                             <constraint firstItem="Rwh-n8-zBT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G3J-ZP-lyZ"/>
                             <constraint firstItem="zE1-Ky-X1s" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.75" id="Nnx-fz-Aop"/>
                             <constraint firstItem="Rwh-n8-zBT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dfu-pR-1qI"/>
                             <constraint firstItem="Rwh-n8-zBT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dki-Lf-BG8"/>
-                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-15" id="gXV-eu-6XU"/>
-                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="oON-ay-blH"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="gXV-eu-6XU"/>
+                            <constraint firstItem="zE1-Ky-X1s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="oON-ay-blH"/>
                             <constraint firstItem="pqU-VY-QRA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pgu-gL-1or"/>
                             <constraint firstItem="Rwh-n8-zBT" firstAttribute="top" secondItem="pqU-VY-QRA" secondAttribute="bottom" constant="15" id="vlg-kZ-Dud"/>
                         </constraints>

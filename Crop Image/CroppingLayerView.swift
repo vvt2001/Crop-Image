@@ -21,6 +21,8 @@ class CroppingLayerView: UIView {
     private let edgeIndicatorSize = CGSize(width: 16, height: 16)
     private let cornerIndicatorSize = CGSize(width: 24, height: 24)
     
+    weak var delegate: CroppingLayerViewDelegate?
+
     private func limitedCroppingLayerRect(frame: CGRect) -> CGRect {
         guard let superviewFrame = self.superview?.bounds else { return CGRect() }
         var newFrame = frame
@@ -45,9 +47,10 @@ class CroppingLayerView: UIView {
         // new frame for this "draggable" subview, based on touch offset when moving
         var newFrame = self.frame.offsetBy(dx: translation.x, dy: translation.y)
         newFrame = limitedCroppingLayerRect(frame: newFrame)
-        
+
         self.frame = newFrame
         recognizer.setTranslation(.zero, in: self)
+        self.delegate?.croppingLayerViewChanged(self)
     }
     
     private func updateIndicatorViewLayout() {
@@ -90,11 +93,11 @@ class CroppingLayerView: UIView {
         self.addSubview(bottomEdgeIndicatorView)
         self.addSubview(leftEdgeIndicatorView)
 
-        self.addSubview(topLeftCornerIndicatorView)
-        self.addSubview(topRightCornerIndicatorView)
-        self.addSubview(bottomRightCornerIndicatorView)
-        self.addSubview(bottomLeftCornerIndicatorView)
-        
+        self.insertSubview(topLeftCornerIndicatorView, at: 0)
+        self.insertSubview(topRightCornerIndicatorView, at: 0)
+        self.insertSubview(bottomRightCornerIndicatorView, at: 0)
+        self.insertSubview(bottomLeftCornerIndicatorView, at: 0)
+
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.addGestureRecognizer(gestureRecognizer)
     }
@@ -140,6 +143,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate {
         newFrame = limitedCroppingLayerRect(frame: newFrame)
         self.frame = newFrame
         self.updateIndicatorViewLayout()
+        self.delegate?.croppingLayerViewChanged(self)
     }
 }
 
@@ -168,5 +172,10 @@ extension CroppingLayerView: CornerIndicatorViewDelegate {
         newFrame = limitedCroppingLayerRect(frame: newFrame)
         self.frame = newFrame
         self.updateIndicatorViewLayout()
+        self.delegate?.croppingLayerViewChanged(self)
     }
+}
+
+protocol CroppingLayerViewDelegate: AnyObject {
+    func croppingLayerViewChanged(_ croppingLayerView: CroppingLayerView)
 }
