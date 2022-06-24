@@ -118,6 +118,7 @@ class CroppingLayerView: UIView {
     }
 }
 
+// MARK: - EdgeIndicatorViewDelegate
 extension CroppingLayerView: EdgeIndicatorViewDelegate {
     func edgeIndicatorView(_ edgeIndicatorView: EdgeIndicatorView, didPanIndicatorWithTranslation translation: CGPoint) {
         var newFrame = self.frame
@@ -147,6 +148,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate {
     }
 }
 
+// MARK: - CornerIndicatorViewDelegate
 extension CroppingLayerView: CornerIndicatorViewDelegate {
     func cornerIndicatorView(_ cornerIndicatorView: CornerIndicatorView, didPanIndicatorWithTranslation translation: CGPoint) {
         var newFrame = self.frame

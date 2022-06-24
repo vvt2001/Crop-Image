@@ -107,6 +107,7 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: - CroppingLayerViewDelegate
 extension ViewController: CroppingLayerViewDelegate {
     func croppingLayerViewChanged(_ croppingLayerView: CroppingLayerView) {
         croppingLayerBorderView.frame = croppingLayerView.frame
