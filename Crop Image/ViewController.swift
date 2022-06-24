@@ -80,7 +80,7 @@ class ViewController: UIViewController {
     }
     
     private func resizeImageCroppingLayerViewToAspectFit() {
-        imageCroppingView.frame = imageCroppingView.contentClippingRect
+        imageCroppingView.frame = imageCroppingView.imageRect
     }
     
     override func viewDidLoad() {
