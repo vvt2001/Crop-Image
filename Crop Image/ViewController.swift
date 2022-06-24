@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         resizeImageCroppingLayerViewToAspectFit()
         
         //resize crop layer to image view after load and after each rotation
-        if rotateFlag == true || imageAssets.count != 0 {
+        if rotateFlag == true || !imageAssets.isEmpty {
             croppingLayerView.frame = imageCroppingView.bounds
             rotateFlag = false
             imageAssets.removeAll()
