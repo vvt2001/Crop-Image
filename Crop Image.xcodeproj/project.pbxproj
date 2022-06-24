@@ -472,6 +472,8 @@
 				DEVELOPMENT_TEAM = PUYQHMK4MF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crop Image/Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app require access to Photos Library to get & save images";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This application requires access to Photo's Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -500,6 +502,8 @@
 				DEVELOPMENT_TEAM = PUYQHMK4MF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crop Image/Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app require access to Photos Library to get & save images";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This application requires access to Photo's Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

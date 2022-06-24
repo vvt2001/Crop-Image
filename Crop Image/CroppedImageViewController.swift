@@ -19,8 +19,20 @@ class CroppedImageViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    @IBAction private func saveImage(_ sender: UIButton) {
+    private func showAlert(){
+        let title = "Image saved"
+        let message = "Image has been saved to Library"
         
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
+            self.dismiss(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction private func saveImage(_ sender: UIButton) {
+        UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil)
+        showAlert()
     }
     
     override func viewDidLoad() {
