@@ -80,7 +80,7 @@ class ViewController: UIViewController {
     }
     
     private func resizeImageCroppingLayerViewToAspectFit() {
-        imageCroppingView.frame = imageCroppingView.imageRect
+        imageCroppingView.frame = imageCroppingView.imageRect.offsetBy(dx: imageCroppingView.frame.origin.x, dy: imageCroppingView.frame.origin.y)
     }
     
     override func viewDidLoad() {
