@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func saveCroppedImage(_ sender: UIButton) {
-        let scale = (imageCroppingView.image?.size.width)! / imageCroppingView.frame.width
+        let scale = imageCroppingView.image!.size.width / imageCroppingView.frame.width
         let cropRect: CGRect
         if !imageIsFlipped {
             cropRect = CGRect(x: croppingLayerView.frame.origin.x * scale, y: croppingLayerView.frame.origin.y * scale, width: croppingLayerView.frame.width * scale, height: croppingLayerView.frame.height * scale)
