@@ -18,7 +18,7 @@ class CroppingLayerView: UIView {
     private var bottomRightCornerIndicatorView = CornerIndicatorView()
     private var bottomLeftCornerIndicatorView = CornerIndicatorView()
     
-    private func limitedCroppingLayer(frame: CGRect) -> CGRect {
+    private func limitedCroppingLayerRect(frame: CGRect) -> CGRect {
         guard let superviewFrame = self.superview?.bounds else { return CGRect() }
         var newFrame = frame
         
@@ -41,7 +41,7 @@ class CroppingLayerView: UIView {
         
         // new frame for this "draggable" subview, based on touch offset when moving
         var newFrame = self.frame.offsetBy(dx: translation.x, dy: translation.y)
-        newFrame = limitedCroppingLayer(frame: newFrame)
+        newFrame = limitedCroppingLayerRect(frame: newFrame)
         
         self.frame = newFrame
         recognizer.setTranslation(.zero, in: self)
@@ -124,7 +124,7 @@ extension CroppingLayerView: EdgeIndicatorViewDelegate {
             newFrame = CGRect(x: newFrame.origin.x, y: newFrame.origin.y, width: newFrame.width, height: min(newFrame.height + translation.y, maxHeightFromBottom))
         }
         
-        newFrame = limitedCroppingLayer(frame: newFrame)
+        newFrame = limitedCroppingLayerRect(frame: newFrame)
         self.frame = newFrame
         self.updateIndicatorViewLayout()
     }
@@ -152,7 +152,7 @@ extension CroppingLayerView: CornerIndicatorViewDelegate {
             newFrame = CGRect(x: newFrame.origin.x + translation.x, y: newFrame.origin.y, width: min(newFrame.width - translation.x, maxWidthFromLeft), height: min(newFrame.height + translation.y, maxHeightFromBottom))
         }
         
-        newFrame = limitedCroppingLayer(frame: newFrame)
+        newFrame = limitedCroppingLayerRect(frame: newFrame)
         self.frame = newFrame
         self.updateIndicatorViewLayout()
     }
