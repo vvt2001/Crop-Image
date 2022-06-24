@@ -19,7 +19,7 @@ class CroppedImageViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    private func showAlert(){
+    @objc func showAlert(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         let title = "Image saved"
         let message = "Image has been saved to Library"
         
@@ -29,10 +29,9 @@ class CroppedImageViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     @IBAction private func saveImage(_ sender: UIButton) {
-        UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil)
-        showAlert()
+        UIImageWriteToSavedPhotosAlbum(croppedImage, self, #selector(showAlert), nil)
     }
     
     override func viewDidLoad() {
