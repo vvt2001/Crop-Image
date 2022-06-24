@@ -18,6 +18,9 @@ class CroppingLayerView: UIView {
     private var bottomRightCornerIndicatorView = CornerIndicatorView()
     private var bottomLeftCornerIndicatorView = CornerIndicatorView()
     
+    private let edgeIndicatorSize = CGSize(width: 16, height: 16)
+    private let cornerIndicatorSize = CGSize(width: 24, height: 24)
+    
     private func limitedCroppingLayerRect(frame: CGRect) -> CGRect {
         guard let superviewFrame = self.superview?.bounds else { return CGRect() }
         var newFrame = frame
@@ -48,15 +51,15 @@ class CroppingLayerView: UIView {
     }
     
     private func updateIndicatorViewLayout() {
-        topEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - 6, y: -7, width: 16, height: 16)
-        rightEdgeIndicatorView.frame = CGRect(x: self.frame.width - 9, y: self.frame.height/2 - 6, width: 16, height: 16)
-        bottomEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - 6, y: self.frame.height - 9, width: 16, height: 16)
-        leftEdgeIndicatorView.frame = CGRect(x: -7, y: self.frame.height/2 - 6, width: 16, height: 16)
+        topEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - edgeIndicatorSize.width/2, y: -edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
+        rightEdgeIndicatorView.frame = CGRect(x: self.frame.width - edgeIndicatorSize.width/2, y: self.frame.height/2 - edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
+        bottomEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - edgeIndicatorSize.width/2, y: self.frame.height - edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
+        leftEdgeIndicatorView.frame = CGRect(x: -edgeIndicatorSize.width/2, y: self.frame.height/2 - edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
         
-        topLeftCornerIndicatorView.frame = CGRect(x: -6, y: -6, width: 24, height: 24)
-        topRightCornerIndicatorView.frame = CGRect(x: self.frame.width - 18, y: -6, width: 24, height: 24)
-        bottomRightCornerIndicatorView.frame = CGRect(x: self.frame.width - 18, y: self.frame.height - 18, width: 24, height: 24)
-        bottomLeftCornerIndicatorView.frame = CGRect(x: -6, y: self.frame.height - 18, width: 24, height: 24)
+        topLeftCornerIndicatorView.frame = CGRect(x: -cornerIndicatorSize.width/2, y: -cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
+        topRightCornerIndicatorView.frame = CGRect(x: self.frame.width - cornerIndicatorSize.width/2, y: -cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
+        bottomRightCornerIndicatorView.frame = CGRect(x: self.frame.width - cornerIndicatorSize.width/2, y: self.frame.height - cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
+        bottomLeftCornerIndicatorView.frame = CGRect(x: -cornerIndicatorSize.width/2, y: self.frame.height - cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
     }
     
     private func setupView() {
