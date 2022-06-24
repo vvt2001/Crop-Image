@@ -51,15 +51,15 @@ class CroppingLayerView: UIView {
     }
     
     private func updateIndicatorViewLayout() {
-        topEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - edgeIndicatorSize.width/2, y: -edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
-        rightEdgeIndicatorView.frame = CGRect(x: self.frame.width - edgeIndicatorSize.width/2, y: self.frame.height/2 - edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
-        bottomEdgeIndicatorView.frame = CGRect(x: self.frame.width/2 - edgeIndicatorSize.width/2, y: self.frame.height - edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
-        leftEdgeIndicatorView.frame = CGRect(x: -edgeIndicatorSize.width/2, y: self.frame.height/2 - edgeIndicatorSize.height/2, width: edgeIndicatorSize.width, height: edgeIndicatorSize.height)
+        topEdgeIndicatorView.frame.origin = CGPoint(x: self.frame.width/2 - edgeIndicatorSize.width/2, y: -edgeIndicatorSize.height/2)
+        rightEdgeIndicatorView.frame.origin = CGPoint(x: self.frame.width - edgeIndicatorSize.width/2, y: self.frame.height/2 - edgeIndicatorSize.height/2)
+        bottomEdgeIndicatorView.frame.origin = CGPoint(x: self.frame.width/2 - edgeIndicatorSize.width/2, y: self.frame.height - edgeIndicatorSize.height/2)
+        leftEdgeIndicatorView.frame.origin = CGPoint(x: -edgeIndicatorSize.width/2, y: self.frame.height/2 - edgeIndicatorSize.height/2)
         
-        topLeftCornerIndicatorView.frame = CGRect(x: -cornerIndicatorSize.width/2, y: -cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
-        topRightCornerIndicatorView.frame = CGRect(x: self.frame.width - cornerIndicatorSize.width/2, y: -cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
-        bottomRightCornerIndicatorView.frame = CGRect(x: self.frame.width - cornerIndicatorSize.width/2, y: self.frame.height - cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
-        bottomLeftCornerIndicatorView.frame = CGRect(x: -cornerIndicatorSize.width/2, y: self.frame.height - cornerIndicatorSize.height/2, width: cornerIndicatorSize.width, height: cornerIndicatorSize.height)
+        topLeftCornerIndicatorView.frame.origin = CGPoint(x: -cornerIndicatorSize.width/2, y: -cornerIndicatorSize.height/2)
+        topRightCornerIndicatorView.frame.origin = CGPoint(x: self.frame.width - cornerIndicatorSize.width/2, y: -cornerIndicatorSize.height/2)
+        bottomRightCornerIndicatorView.frame.origin = CGPoint(x: self.frame.width - cornerIndicatorSize.width/2, y: self.frame.height - cornerIndicatorSize.height/2)
+        bottomLeftCornerIndicatorView.frame.origin = CGPoint(x: -cornerIndicatorSize.width/2, y: self.frame.height - cornerIndicatorSize.height/2)
     }
     
     private func setupView() {
@@ -74,6 +74,16 @@ class CroppingLayerView: UIView {
         topRightCornerIndicatorView.delegate = self
         bottomRightCornerIndicatorView.delegate = self
         bottomLeftCornerIndicatorView.delegate = self
+        
+        topEdgeIndicatorView.frame.size = edgeIndicatorSize
+        rightEdgeIndicatorView.frame.size = edgeIndicatorSize
+        bottomEdgeIndicatorView.frame.size = edgeIndicatorSize
+        leftEdgeIndicatorView.frame.size = edgeIndicatorSize
+
+        topLeftCornerIndicatorView.frame.size = cornerIndicatorSize
+        topRightCornerIndicatorView.frame.size = cornerIndicatorSize
+        bottomRightCornerIndicatorView.frame.size = cornerIndicatorSize
+        bottomLeftCornerIndicatorView.frame.size = cornerIndicatorSize
         
         self.addSubview(topEdgeIndicatorView)
         self.addSubview(rightEdgeIndicatorView)
