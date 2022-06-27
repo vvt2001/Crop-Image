@@ -24,6 +24,7 @@
 		E46E8263285C641200CD9E76 /* CroppedImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46E8261285C641200CD9E76 /* CroppedImageViewController.xib */; };
 		E46E8265285C815F00CD9E76 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E8264285C815F00CD9E76 /* UIImageViewExtension.swift */; };
 		E471D65228655B970016C7BD /* CroppingLayerBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471D65128655B970016C7BD /* CroppingLayerBorderView.swift */; };
+		E4FE0D3F2869E5430051A941 /* ImageCroppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE0D3E2869E5430051A941 /* ImageCroppingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E46E8261285C641200CD9E76 /* CroppedImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CroppedImageViewController.xib; sourceTree = "<group>"; };
 		E46E8264285C815F00CD9E76 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		E471D65128655B970016C7BD /* CroppingLayerBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingLayerBorderView.swift; sourceTree = "<group>"; };
+		E4FE0D3E2869E5430051A941 /* ImageCroppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroppingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				E46E82282859B42000CD9E76 /* SceneDelegate.swift */,
 				E46E822A2859B42000CD9E76 /* ViewController.swift */,
 				E46E822C2859B42000CD9E76 /* Main.storyboard */,
+				E4FE0D3E2869E5430051A941 /* ImageCroppingView.swift */,
 				E46E82562859CAC900CD9E76 /* UIImageExtension.swift */,
 				E46E8264285C815F00CD9E76 /* UIImageViewExtension.swift */,
 				E471D65128655B970016C7BD /* CroppingLayerBorderView.swift */,
@@ -287,6 +290,7 @@
 				E46E825D2859DBEB00CD9E76 /* EdgeIndicatorView.swift in Sources */,
 				E471D65228655B970016C7BD /* CroppingLayerBorderView.swift in Sources */,
 				E46E822B2859B42000CD9E76 /* ViewController.swift in Sources */,
+				E4FE0D3F2869E5430051A941 /* ImageCroppingView.swift in Sources */,
 				E46E82272859B42000CD9E76 /* AppDelegate.swift in Sources */,
 				E46E8262285C641200CD9E76 /* CroppedImageViewController.swift in Sources */,
 				E46E8265285C815F00CD9E76 /* UIImageViewExtension.swift in Sources */,

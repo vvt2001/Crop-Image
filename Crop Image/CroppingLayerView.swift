@@ -116,6 +116,15 @@ class CroppingLayerView: UIView {
         super.layoutSubviews()
         updateIndicatorViewLayout()
     }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if super.point(inside: point, with: event) { return true }
+        for subview in subviews {
+            let subviewPoint = subview.convert(point, from: self)
+            if subview.point(inside: subviewPoint, with: event) { return true }
+        }
+        return false
+    }
 }
 
 // MARK: - EdgeIndicatorViewDelegate
