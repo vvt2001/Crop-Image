@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CroppingLayerView: UIView {
+class CroppingLayerView: ContainerView {
     private var topEdgeIndicatorView = EdgeIndicatorView()
     private var rightEdgeIndicatorView = EdgeIndicatorView()
     private var bottomEdgeIndicatorView = EdgeIndicatorView()
@@ -119,15 +119,6 @@ class CroppingLayerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         updateIndicatorViewLayout()
-    }
-    
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        if super.point(inside: point, with: event) { return true }
-        for subview in subviews {
-            let subviewPoint = subview.convert(point, from: self)
-            if subview.point(inside: subviewPoint, with: event) { return true }
-        }
-        return false
     }
 }
 
