@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWM-vd-GoY">
-                    <rect key="frame" x="0.0" y="272" width="414" height="352"/>
+                    <rect key="frame" x="20" y="272" width="374" height="352"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="352" id="O4b-H0-EPi"/>
                     </constraints>
@@ -32,7 +32,7 @@
                     <items>
                         <navigationItem id="XWU-6X-TXt">
                             <barButtonItem key="leftBarButtonItem" style="plain" id="0KH-Et-6aH">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TIb-lp-6CT">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TIb-lp-6CT">
                                     <rect key="frame" x="20" y="5" width="92" height="34.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
@@ -43,7 +43,7 @@
                                 </button>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" style="plain" id="ztI-xU-ii1">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VOA-bO-ky5">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VOA-bO-ky5">
                                     <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
@@ -60,13 +60,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="RWM-vd-GoY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ADA-K7-f0s"/>
                 <constraint firstItem="fL5-vR-ybv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HbH-96-1Rk"/>
-                <constraint firstItem="RWM-vd-GoY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XxF-HB-u5t"/>
                 <constraint firstItem="fL5-vR-ybv" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="eqR-1Q-bLr"/>
                 <constraint firstItem="fL5-vR-ybv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ezo-R1-lVJ"/>
                 <constraint firstItem="RWM-vd-GoY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="mOQ-B7-q4G"/>
-                <constraint firstItem="RWM-vd-GoY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="w3V-LK-sQU"/>
+                <constraint firstItem="RWM-vd-GoY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rjx-3T-Zub"/>
+                <constraint firstItem="RWM-vd-GoY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="sOA-ba-f6Z"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
         </view>
